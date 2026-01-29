@@ -65,13 +65,7 @@ namespace Strings
             index = combined.IndexOf(sen2);
             Console.WriteLine("\n\nSearching for the first index of sentence 2 in sentence 1...");
             Console.WriteLine("Index of the first element from sentence 2 in sentence 1 = {0}", index);
-
-
-
-
-
-
-
+            
         }
     }
 }
