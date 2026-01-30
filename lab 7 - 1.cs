@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 
 namespace Classes
 {
+    //клас кораблі
     class ship
     {
         string name;
@@ -10,6 +11,7 @@ namespace Classes
         double power;
         string fuel;
 
+        //ввід даних 
         public void input_ship()
         {
             string s;
@@ -27,6 +29,7 @@ namespace Classes
             fuel = Console.ReadLine();
         }
 
+        //вивід даних
         public void output_ship()
         {
             Console.WriteLine("Ім'я: " + name);
@@ -37,6 +40,8 @@ namespace Classes
         }
 
     }
+
+    //клас авіапереносці
     class aircrafts: ship
     {
         string typeaircraft;
@@ -44,7 +49,7 @@ namespace Classes
 
         public void input_aircraft()
         {
-            input_ship();
+            input_ship(); //виклик заповення з класу кораблів, щоб не повторювати питання
             Console.Write("Введіть тип літака: ");
             typeaircraft = Console.ReadLine();
             Console.Write("Введіть кількість літаків: ");
@@ -58,42 +63,54 @@ namespace Classes
             Console.WriteLine("Кількість літаків: " + howmanyaircrafts);
         }
     }
+
+    //клас ракетоносців
     class rockets: ship
     {
         string typerocket;
         int howmanyrockets;
 
+        //функція вводу ракетоносців
         public void input_rockets()
         {
-            input_ship();
+            input_ship(); //виклик заповення з класу кораблів, щоб не повторювати питання
             Console.Write("Введіть тип ракетоносця: ");
             typerocket = Console.ReadLine();
             Console.Write("Введіть кількість ракетоносців: ");
             howmanyrockets = Convert.ToInt32(Console.ReadLine());
         }
 
+        //функція виводу ракетоносців
         public void output_rocket()
         {
-            output_ship();
+            output_ship(); //виклик виводу з класу кораблів, щоб не повторювати питання
             Console.WriteLine("Вид ракетоносця: " + typerocket);
             Console.WriteLine("Кількість ракетоносців: " + howmanyrockets);
         }
     }
 
+    //основний клас
     class Program
     {
+    
+       //основна функція main()
        public static void Main(string[] args)
         {
-            Console.Write("Що ви хочете додати? 1. Корабель 2. Літак 3. Ракетоносець (оберіть 1-3): ");
+            //запит на дію
+            Console.Write("Що ви хочете додати? 1. Корабель 2. Авіапереносець 3. Ракетоносець (оберіть 1-3): ");
             string choice = Console.ReadLine();
 
+            //switch case для кожного з варіантів
             switch (choice)
             {
                 case "1":
+
+                    //питаємо розмір масиву
                     Console.Write("Як багато кораблів ви хочете додати? ");
                     int n = Convert.ToInt32(Console.ReadLine());
                     ship[] shipp = new ship[n];
 
+                    //заповнюємо кожний елемент масиву
                     for (int i = 0; i < shipp.Length; i++)
                     {
                         shipp[i] = new ship();
@@ -104,10 +121,13 @@ namespace Classes
                     break;
 
                 case "2":
+
+                    //питаємо розмір масиву
                     Console.Write("Як багато літаків ви хочете додати? ");
                     n = Convert.ToInt32(Console.ReadLine());
                     aircrafts[] aircraft = new aircrafts[n];
 
+                    //заповнюємо кожний елемент масиву
                     for (int i = 0; i < aircraft.Length; i++)
                     {
                         aircraft[i] = new aircrafts();
@@ -118,10 +138,13 @@ namespace Classes
                     break;
 
                 case "3":
+
+                    //питаємо розмір масиву
                     Console.Write("Як багато ракетоносців ви хочете додати? ");
                     n = Convert.ToInt32(Console.ReadLine());
                     rockets[] rocket = new rockets[n];
 
+                    //заповнюємо кожний елемент масиву
                     for (int i = 0; i < rocket.Length; i++)
                     {
                         rocket[i] = new rockets();
@@ -130,6 +153,8 @@ namespace Classes
                         rocket[i].output_rocket();
                     }
                     break;
+
+                //опція виходу з програми, якщо не обрали ніякий з запропонованих варіантів
                 default:
                     Console.WriteLine("Такої опції не було. Вихід з програми...");
                     break;
@@ -141,3 +166,4 @@ namespace Classes
 
 
 }
+
