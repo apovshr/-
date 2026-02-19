@@ -22,7 +22,7 @@ namespace lab17
             Console.WriteLine("\n");
         }
 
-        // функція рахунку значень прикладу
+        // функція для рахунку значень змінних для прикладу
         public void suma(double []x, F1 f1,F1 f2, out double A, out double B, out double C, bool yes)
         {
             A = C = 0;
